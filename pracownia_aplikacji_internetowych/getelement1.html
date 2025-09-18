@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .klikniety {
+            background-color: green;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <button onclick="klikkkk(this)">Click me</button>
+    <button onclick="this.innerHTML=Date()">Klik</button>
+    <button onclick="pokazDate()">Pokaz date</button>
+
+    <button onclick="usunZdarzenie()">Usun zdarzenie</button>
+
+    <div id="wyswietlDate"></div>
+
+    <div id="p1" class="punkt">Punkt pierwszy</div>
+    <div id="o1" class="opis" hidden="true">Opis punktu pierwszego...</div>
+    <div id="p2" class="punkt">Punkt drugi</div>
+    <div id="o2" class="opis" hidden="true">Opis punktu drugiego...</div>
+
+
+    <form id="f1" action="wyslij.html">
+        <input id="imie" name="imie"/>
+        <input type="submit" value="wyslij"/>
+    </form>
+
+
+    <script>
+        document.querySelector('#f1').addEventListener('submit', e=>{
+            e.preventDefault();
+            console.log('Ten formularz się nie wyśle');
+        });
+
+        
+
+
+        for(let el of document.querySelectorAll('.punkt')){
+            console.dir(el);
+            el.addEventListener("click",()=>{
+                el.nextElementSibling.hidden = false;
+                el.classList.add("klikniety");
+            });
+            el.addEventListener("mouseout",()=>{
+                el.nextElementSibling.hidden = true;
+                el.classList.remove("klikniety");
+            });
+        }
+
+
+        function pokazDate(){
+            let a = document.querySelector('#wyswietlDate').innerHTML=Date();
+        }
+
+
+        console.dir(document.querySelector("button"));
+
+
+        function schowajDate(){
+            document.querySelector("#wyswietlDate").innerHTML='';
+        }
+
+        function usunZdarzenie(){
+            document.querySelector('#wyswietlDate').removeEventListener("mouseover", schowajDate);
+        }
+
+        document.querySelector('#wyswietlDate').addEventListener('mouseover',schowajDate)
+
+        
+        function klikkkk(button) {
+        setInterval(function () {
+            button.innerHTML = Date();
+        }, 1000);
+    }
+
+    </script>
+</body>
+</html>

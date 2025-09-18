@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Ćwiczenie DOM</title>
+
+  <script src="strona_js.js" defer></script>
+
+</head>
+<body>  
+<h1 id="naglowek">To jest nagłówek</h1>
+
+  <p class="tekst">Pierwszy akapit</p>
+  <p class="tekst" id="zmieniony">Drugi akapit</p>
+  <p class="tekst">Trzeci akapit</p>
+
+  <ul>
+    <li>Element 1</li>
+    <li>Element 2</li>
+  </ul>
+  <div class="kontener">
+    <span class="info">Info 1</span>
+    <span class="info">Info 2</span>
+  </div>
+
+<script>
+    const a = (document.getElementById("zmieniony"));
+    console.dir(a);
+    a.innerHTML = ("Zmieniony tekst"); // 8
+
+
+    const naglowek = document.querySelectorAll("#naglowek");
+        console.log(naglowek);
+        naglowek.forEach(el => {
+            el.style.color = "red"; // 9
+        });
+</script>
+
+</body>
+</html>  
