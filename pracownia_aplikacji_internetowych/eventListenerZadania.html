@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="przycisk" onclick="zadanie1()">Powitaj!</button>
+    <div id="powitanie"></div>
+
+    <button onclick="zadanie2()">jeden</button>
+    <button onclick="zadanie2()">dwa</button>
+    <button onclick="zadanie2()">trzy</button><br>
+
+    <button onclick="zadanie3()">Zmień tło</button>
+
+    <div id="ddd" style="width: 300px; height: 300px; border: 1px solid black;">
+        <button onclick="zadanie41()">Czerwone tło</button>
+        <button onclick="zadanie42()">Zielone tło</button>
+    </div><br>
+
+    <div id="kontener" style="height: 50px; width: 50px;">imię i nazwisko</div>
+    <script>
+        //1
+        function zadanie1() {
+            document.getElementById("powitanie").innerHTML = '<h1>Witaj świecie!</h1>';
+
+            document.getElementById("przycisk").remove();
+        };
+
+        //2
+        function zadanie2(){
+            alert("kliknąłeś na przycisk");
+        };
+
+        //3
+        function zadanie3(){
+            document.body.style.backgroundColor = 'yellow';
+        };
+
+        //4
+        function zadanie41(){
+            const a = document.getElementById('ddd');
+            a.style.backgroundColor = 'red';
+        };
+        function zadanie42(){
+            const b = document.getElementById('ddd');
+            b.style.backgroundColor = 'green';
+        };
+
+        //5
+        function powieksz(){
+            const c = document.getElementById('kontener');
+            const style = window.getComputedStyle(c);
+            const fontSizeStr = style.fontSize;
+            const fontSizeNum = parseFloat(fontSizeStr);
+
+    c.style.fontSize = (fontSizeNum * 2) + "px";
+            
+        }
+        document.querySelector('#kontener').addEventListener('mouseover',powieksz);
+
+        
+
+
+
+
+
+        /*
+1. Napisz kod, który po naciśnięciu przycisku z podpisem "Powitaj!" wyświetli tekst - nagłówek 1 stopnia - 
+"Witaj świecie!" a sam przycisk zniknie.
+
+2. Napisz kod, który wyświetli trzy przyciski, podpisane jeden, dwa, trzy. Kliknięcie na każdy z nich ma wyświetlić napis, 
+kliknąłeś na przycisk.
+
+3. Napisz skrypt, który będzie powodował, że naciśnięcie przycisku z napisem "Zmień tło" będzie zmieniało kolor 
+tła na żółty.
+
+4.Utwórz div-a 300x300px z czarnym obramowaniem. Dodaj dwa przyciski "Czerwone tło" i "Zielone tło", 
+kliknięcie na przycisk ma zmieniać kolor div-a na dany.
+
+5. Utwórz element div o id "kontener", wielkości 50x50px, wprowadź do niego swoje imię i nazwisko, 
+a następnie utwórz dla niego następujące zdarzenia:
+- po kliknięciu na niego zmień jego tło na losowy kolor,
+- po najechaniu na niego kursorem zmień wielkość czcionki na 2 razy większą, 
+- po zabraniu kursora z obrębu diva wielkość czcionki ma wracać do pierwotnego rozmiaru.
+
+6. Utwórz paragraf klasy wyroznione, następnie wprowadź do niego nazwę Twojej miejscowości. 
+Utwórz dla niego następujące zdarzenia:
+- po podwójnym kliknięciu na niego nazwa miejscowości niech zostanie zamieniona na nazwę powiatu,
+- po najechaniu kursorem na paragraf, niech w konsoli zostanie wyświetlony komunikat z zawartością paragrafu.
+
+*/
+
+
+        </script>
+    </body>
+</html>
